@@ -83,11 +83,11 @@ class Database {
         matches = false;
       }
       
-      if (criteria.religion && profile.religion !== criteria.religion) {
+      if (criteria.religion && profile.religion && profile.religion.toLowerCase() !== criteria.religion.toLowerCase()) {
         matches = false;
       }
       
-      if (criteria.city && profile.city.toLowerCase() !== criteria.city.toLowerCase()) {
+      if (criteria.city && profile.city && profile.city.toLowerCase() !== criteria.city.toLowerCase()) {
         matches = false;
       }
       

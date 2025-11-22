@@ -30,7 +30,7 @@ function ProfileDetails() {
   const handleSendRequest = async () => {
     try {
       setSending(true);
-      await sendMatchRequest(parseInt(id));
+      await sendMatchRequest(parseInt(id, 10));
       setMessage('Interest sent successfully!');
     } catch (error) {
       setMessage('Failed to send interest. Please try again.');

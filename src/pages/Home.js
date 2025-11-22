@@ -42,14 +42,15 @@ function Home() {
   };
 
   const handleReset = () => {
-    setFilters({
+    const resetFilters = {
       gender: '',
       minAge: '',
       maxAge: '',
       religion: '',
       city: ''
-    });
-    setTimeout(() => fetchProfiles(), 100);
+    };
+    setFilters(resetFilters);
+    fetchProfiles();
   };
 
   if (loading) {
