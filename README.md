@@ -1,37 +1,45 @@
-# MatrimonialApp
+# MatrimonialApp - Android Mobile Application
 
-A modern matrimonial web application built with React and Node.js for finding life partners.
+A modern matrimonial mobile application built with React Native for Android, designed for finding life partners. Features Indian-themed UI inspired by leading matrimonial platforms like Shaadi.com.
 
 ## Features
 
 - 👤 User Registration and Authentication
 - 📝 Create and Manage Profiles
-- 🔍 Advanced Search with Multiple Filters
-- 💑 Browse Potential Matches
+- 🔍 Advanced Search with Multiple Filters (Gender, Age, Religion, City)
+- 💑 Browse Profiles with Card-based UI
 - 💌 Send Interest to Profiles
 - 🔐 Secure JWT-based Authentication
-- 📱 Responsive Design
+- 📱 Native Android Mobile App
+- 🎨 Indian-themed UI Design (Pink/Purple/Gold colors)
+- 🕉️ Cultural Elements (Traditional colors & icons)
 
 ## Tech Stack
 
-### Frontend
-- React 18
-- React Router for navigation
+### Mobile Frontend
+- React Native 0.72.6
+- React Navigation (Stack & Bottom Tabs)
+- React Native Vector Icons
+- React Native Linear Gradient
+- AsyncStorage for local data
 - Axios for API calls
-- CSS3 for styling
 
-### Backend
-- Node.js
-- Express.js
+### Backend (Unchanged)
+- Node.js with Express.js
 - JWT for authentication
 - bcryptjs for password hashing
-- In-memory database (for demo purposes)
+- In-memory database (production-ready for MongoDB/PostgreSQL migration)
+- RESTful API architecture
 
-## Installation
+## Installation & Setup
 
 ### Prerequisites
-- Node.js (v14 or higher)
+- Node.js (v16 or higher)
 - npm or yarn
+- Android Studio (for Android development)
+- JDK 11 or higher
+- Android SDK (API Level 33)
+- Android device or emulator
 
 ### Setup
 
@@ -46,47 +54,80 @@ cd MatrimonialApp
 npm install
 ```
 
-3. Create a `.env` file (optional):
+3. Create a `.env` file for backend (optional):
 ```bash
 cp .env.example .env
 ```
 
-4. Edit `.env` and update the values if needed.
+4. Set up Android development environment:
+   - Install Android Studio
+   - Install Android SDK (API 33)
+   - Set up Android emulator or connect physical device
 
 ## Running the Application
 
-### Development Mode
+### Backend Server
 
-#### Start the Backend Server:
+Start the backend API server:
 ```bash
-npm start
+npm run server
 ```
 The server will run on `http://localhost:5000`
 
-#### Start the Frontend (in a new terminal):
+For development with auto-reload:
 ```bash
-npm run client
-```
-The React app will run on `http://localhost:3000`
-
-### Production Build
-
-1. Build the React app:
-```bash
-npm run build
+npm run server:dev
 ```
 
-2. Set environment to production:
-```bash
-export NODE_ENV=production
-```
+### Mobile App (Android)
 
-3. Start the server:
+1. Start Metro bundler:
 ```bash
 npm start
 ```
 
-The app will be available at `http://localhost:5000`
+2. In a new terminal, run the Android app:
+```bash
+npm run android
+```
+
+This will:
+- Build the Android app
+- Install it on your emulator/device
+- Launch the app
+
+### Development Notes
+
+- Backend API URL is configured in `mobile/src/services/api.js`
+- For Android emulator, it uses `10.0.2.2:5000` (emulator's localhost)
+- For physical device, update API_URL with your computer's IP address
+
+## Building for Production
+
+### Generate Android APK:
+
+```bash
+cd mobile/android
+./gradlew assembleRelease
+```
+
+APK will be generated at:
+`mobile/android/app/build/outputs/apk/release/app-release.apk`
+
+### Generate Android App Bundle (for Play Store):
+
+```bash
+cd mobile/android
+./gradlew bundleRelease
+```
+
+Bundle will be at:
+`mobile/android/app/build/outputs/bundle/release/app-release.aab`
+
+**Note**: For production release, you need to:
+1. Generate a release keystore
+2. Configure signing in `android/app/build.gradle`
+3. Update the backend API URL to production server
 
 ## API Endpoints
 
@@ -129,15 +170,28 @@ The app will be available at `http://localhost:5000`
 - Secure API endpoints with middleware
 - Input validation
 
+## Design Philosophy
+
+The app follows Indian matrimonial design standards:
+- **Colors**: Pink/Magenta (traditional auspicious color), Purple, Orange/Gold
+- **Icons**: Including traditional symbols (🕉️ Om, 💕 Hearts)
+- **Layout**: Card-based profile browsing similar to leading platforms
+- **Typography**: Clear, readable fonts with appropriate hierarchy
+- **Navigation**: Bottom tab navigation for easy mobile access
+
 ## Future Enhancements
 
-- Profile image upload
+- Profile photo upload with camera integration
 - Real-time chat functionality
-- Email notifications
-- Advanced matching algorithm
+- Push notifications for matches
+- Advanced matching algorithm based on preferences
 - Payment integration for premium features
-- Mobile app (React Native)
-- Database integration (MongoDB/PostgreSQL)
+- iOS version
+- Database integration (MongoDB/PostgreSQL for production)
+- Email verification
+- Phone number OTP verification
+- Profile verification badges
+- More detailed search filters (education, income, height, etc.)
 
 ## Contributing
 

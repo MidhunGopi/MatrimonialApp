@@ -1,17 +1,18 @@
 {
   "name": "matrimonialapp",
   "version": "1.0.0",
-  "description": "A matrimonial web application for finding life partners",
-  "main": "server/index.js",
+  "description": "A matrimonial mobile application for finding life partners - Android App",
+  "main": "mobile/index.js",
   "scripts": {
-    "start": "node server/index.js",
-    "dev": "nodemon server/index.js",
-    "client": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "server": "node server/index.js",
+    "server:dev": "nodemon server/index.js",
+    "test": "jest",
+    "lint": "eslint ."
   },
-  "keywords": ["matrimonial", "matchmaking", "dating", "marriage"],
+  "keywords": ["matrimonial", "matchmaking", "dating", "marriage", "android", "mobile"],
   "author": "Midhun Gopi",
   "license": "MIT",
   "dependencies": {
@@ -22,26 +23,32 @@
     "jsonwebtoken": "^9.0.2",
     "dotenv": "^16.3.1",
     "mongoose": "^7.5.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.16.0",
-    "react-scripts": "5.0.1",
-    "axios": "^1.5.0"
+    "react": "18.2.0",
+    "react-native": "0.72.6",
+    "@react-navigation/native": "^6.1.9",
+    "@react-navigation/native-stack": "^6.9.17",
+    "@react-navigation/bottom-tabs": "^6.5.11",
+    "react-native-screens": "^3.27.0",
+    "react-native-safe-area-context": "^4.7.4",
+    "react-native-gesture-handler": "^2.13.4",
+    "axios": "^1.5.0",
+    "@react-native-async-storage/async-storage": "^1.19.5",
+    "react-native-vector-icons": "^10.0.2",
+    "react-native-linear-gradient": "^2.8.3"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "@babel/core": "^7.23.2",
+    "@babel/preset-env": "^7.23.2",
+    "@babel/runtime": "^7.23.2",
+    "@react-native/eslint-config": "^0.72.2",
+    "@react-native/metro-config": "^0.72.11",
+    "@tsconfig/react-native": "^3.0.2",
+    "eslint": "^8.52.0",
+    "jest": "^29.7.0",
+    "metro-react-native-babel-preset": "0.76.8"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "proxy": "http://localhost:5000"
+  "engines": {
+    "node": ">=16"
+  }
 }
